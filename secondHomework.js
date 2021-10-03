@@ -23,17 +23,17 @@ let start = (value1 < value2) ? value1 : value2,
 
     if (Array.isArray(arrOfNum) && Number.isInteger(value1) && Number.isInteger(value2)) {
 
-    arrOfNum = arrOfNum.filter(item => {
+        arrOfNum = arrOfNum.filter(item => {
 
-        let interval = (item >= start && item <= end);
+            let interval = (item >= start && item <= end);
 
-        if (Number.isInteger(item)) {
-            return interval;
-        } else {
-            throw error;
-        }
-    
-    });
+            if (Number.isInteger(item)) {
+                return interval;
+            } else {
+                throw error;
+            }
+        
+        });
     
     } else {
         throw error;
