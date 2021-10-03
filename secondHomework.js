@@ -6,7 +6,6 @@ function makeObjectDeepCopy(obj) {
 
     for (key in obj) {
         value = obj[key];
-        console.log(typeof value);
         copy[key] = (typeof value === 'object' && value !== null) ? makeObjectDeepCopy(value) : value;
     }
 
