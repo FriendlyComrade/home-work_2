@@ -22,13 +22,13 @@ let start = (value1 < value2) ? value1 : value2,
     end = (value1 > value2) ? value1 : value2,
     error = new Error('Ошибка!');
 
-    if (Array.isArray(arrOfNum) && Number.isInteger(value1) && Number.isInteger(value2)) {
+    if (Array.isArray(arrOfNum) && Number.isSafeInteger(value1) && Number.isSafeInteger(value2)) {
 
         arrOfNum = arrOfNum.filter(item => {
 
             let interval = (item >= start && item <= end);
 
-            if (Number.isInteger(item)) {
+            if (Number.isSafeInteger(item)) {
                 return interval;
             } else {
                 throw error;
@@ -44,7 +44,7 @@ let start = (value1 < value2) ? value1 : value2,
 
 
 
-let myIterable = {
+const myIterable = {    
     [Symbol.iterator]() {     
         return {
 
@@ -52,7 +52,7 @@ let myIterable = {
         last: this.to,
         
         next () {              
-            const validation = (!Number.isInteger(this.current) || !Number.isInteger(this.last)),
+            const validation = (!Number.isSafeInteger(this.current) || !Number.isSafeInteger(this.last)),
                     err = new Error('Ошибка!');
                 
                 if ( this.current <= this.last ) {
