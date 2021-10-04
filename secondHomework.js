@@ -1,3 +1,4 @@
+
 function makeObjectDeepCopy(obj) {
 
     let copy, key, value;
@@ -10,8 +11,8 @@ function makeObjectDeepCopy(obj) {
     }
 
     return copy;
-
 }
+
 
 
 
@@ -31,16 +32,15 @@ let start = (value1 < value2) ? value1 : value2,
                 return interval;
             } else {
                 throw error;
-            }
-        
+            }        
         });
     
     } else {
         throw error;
     }
-
     return arrOfNum;
 }
+
 
 
 
@@ -55,13 +55,14 @@ let myIterable = {
             const validation = (!Number.isInteger(this.current) || !Number.isInteger(this.last)),
                     err = new Error('Ошибка!');
                 
-                if ( this.current <= this.last && !validation) {
+                if ( this.current <= this.last ) {
                     return {
                         value: !validation ? this.current++ : console.log(err),
                         done: !validation ? false : true
                     };
-                } else if ((this.last < --this.current) || validation) {
+                } else if (( this.last < --this.current ) || validation) {
                     return {value: console.log(err), done: true};
+
                 } else {
                     return {done: true};
                 }  
@@ -69,4 +70,3 @@ let myIterable = {
         };
     },
 };
-
